@@ -10,7 +10,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Navigate to="/mine/minePage" replace />,
+        element: <Navigate to="/home" replace />,
       },
       {
         path: "mine",

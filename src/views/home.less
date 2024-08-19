@@ -1,3 +1,57 @@
-.title {
-  color: red;
+@headerHeight: 100px;
+
+.header {
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  .logo-vertical {
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    width: 180px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: #fffce1;
+    font-size: 18px;
+    font-weight: 600;
+    font-style: italic;
+    opacity: 0.6;
+  }
+}
+
+.content {
+  height: 8000px;
+  position: relative;
+
+  > div {
+    position: sticky;
+  }
+
+  .imgList {
+    top: 100px;
+    .img {
+      width: 400%;
+      height: 180px;
+      position: sticky;
+      background-position: 0 0;
+      background-repeat: repeat-x;
+      background-image: url("https://pub-c5e31b5cdafb419fb247a8ac2e78df7a.r2.dev/public/assets/images/home/bundle-light-1.webp");
+      background-size: contain;
+    }
+  }
+
+  .contentList {
+    top: 500px;
+    width: 100%;
+    height: 300px;
+    opacity: 0;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+  }
+}
+
+.footer {
 }
