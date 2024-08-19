@@ -18,17 +18,23 @@ export default function Home() {
         gsap.to(".img2", { backgroundPositionX: -scrollTop * 1.2 });
         gsap.to(".imgList", { top: 100 });
       } else {
+        const SCROLL = 400
         let offset = scrollTop - LENGTH;
         gsap.to(".imgList", { top: -offset });
 
-        let percent = offset / 400
+        let percent = offset / SCROLL
         if(percent <= 1) {
           gsap.to(".contentList", {
-            // opacity: percent,
-            top: 500 - (400 * percent),
+            opacity: percent,
+            top: 500 - (SCROLL * percent),
           });
+          gsap.to(".line1", { opacity: percent });
         }else {
-          gsap.to(".line1", { opacity: 1 });
+          // const SCROLL = 200
+          // let offset = scrollTop - LENGTH - SCROLL
+          // let percent = offset / SCROLL
+          console.log(percent-1)
+          gsap.to(".line2", { opacity: percent - 1 });
         }
       }
     }
@@ -53,8 +59,8 @@ export default function Home() {
               <div className="img img2"></div>
             </div>
             <div className="contentList">
-              <div className="line1">WelCome! 欢迎！</div>
-              <div className="line2">现在是：</div>
+              <div className="lines line1">WelCome! 欢迎！</div>
+              <div className="lines line2">现在是：</div>
             </div>
           </div>
           <div className="footer"></div>
