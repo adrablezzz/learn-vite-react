@@ -13,28 +13,29 @@ export default function Home() {
     function update() {
       const LENGTH = 2100;
       const scrollTop = window.scrollY;
+      // 背景固定 缓慢滚动
+      let rate: number = scrollTop <= LENGTH ? 0.01 : 0.05
+      if(scrollTop <= 9000) {
+        gsap.to(".sticky", { translateY: scrollY, duration: 0, backgroundPositionY: scrollTop*rate });
+      }
+      
       if (scrollTop < LENGTH) {
         gsap.to(".img1", { backgroundPositionX: scrollTop * 1.2 });
         gsap.to(".img2", { backgroundPositionX: -scrollTop * 1.2 });
         gsap.to(".imgList", { top: 100 });
       } else {
-        const SCROLL = 400
+        const SCROLL = 400;
         let offset = scrollTop - LENGTH;
         gsap.to(".imgList", { top: -offset });
 
-        let percent = offset / SCROLL
-        if(percent <= 1) {
+        let percent = offset / SCROLL;
+        if (percent <= 1) {
           gsap.to(".contentList", {
             opacity: percent,
-            top: 500 - (SCROLL * percent),
+            top: 500 - SCROLL * percent,
           });
-          gsap.to(".line1", { opacity: percent });
-        }else {
-          // const SCROLL = 200
-          // let offset = scrollTop - LENGTH - SCROLL
-          // let percent = offset / SCROLL
-          console.log(percent-1)
-          gsap.to(".line2", { opacity: percent - 1 });
+          gsap.to(".lines", { opacity: percent });
+        } else {
         }
       }
     }
@@ -60,8 +61,11 @@ export default function Home() {
             </div>
             <div className="contentList">
               <div className="lines line1">WelCome! 欢迎！</div>
-              <div className="lines line2">现在是：</div>
+              <div className="lines line2">
+                deep in abis. 来自深渊
+              </div>
             </div>
+            <div className="sticky back"></div>
           </div>
           <div className="footer"></div>
         </Layout>

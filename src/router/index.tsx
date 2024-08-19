@@ -5,12 +5,20 @@ import { UserOutlined, TeamOutlined } from "@ant-design/icons";
 
 export const router = createBrowserRouter([
   {
+    path: "",
+    element: <Navigate to="/home" replace />,
+  },
+  {
+    path: "home",
+    Component: lazy( () => import("@/views/home.tsx")),
+  },
+  {
     path: "/",
     Component: lazy(() => import("@/App.tsx")),
     children: [
       {
-        path: "",
-        element: <Navigate to="/home" replace />,
+        path: "/index",
+        element: <Navigate to="/mine/minePage" replace />,
       },
       {
         path: "mine",
@@ -35,10 +43,6 @@ export const router = createBrowserRouter([
         ],
       },
     ],
-  },
-  {
-    path: "home",
-    Component: lazy( () => import("@/views/home.tsx")),
   },
 ]);
 
