@@ -4,7 +4,10 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import "./home.less";
 import { Layout } from "antd";
-const { Header, Content, Sider } = Layout;
+const { Header } = Layout;
+
+// custom components import
+import BubbleFollowing from "@/components/animate/BubbleFollowing";
 
 export default function Home() {
   const lenisRef = useRef(null);
@@ -14,7 +17,7 @@ export default function Home() {
       const LENGTH = 2100;
       const scrollTop = window.scrollY;
       // 背景固定 缓慢滚动
-      let rate: number = scrollTop <= LENGTH ? 0.01 : 0.05
+      let rate: number = 0.05
       if(scrollTop <= 9000) {
         gsap.to(".sticky", { translateY: scrollY, duration: 0, backgroundPositionY: scrollTop*rate });
       }
@@ -69,6 +72,8 @@ export default function Home() {
           </div>
           <div className="footer"></div>
         </Layout>
+
+        <BubbleFollowing />
       </ReactLenis>
     </>
   );
