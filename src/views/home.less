@@ -1,85 +1,123 @@
-@headerHeight: 100px;
+@full-width: calc(100vw - 10px);
 
-body {
-  overflow-x: hidden;
-}
 
-.header {
-  z-index: 999;
-  position: sticky;
-  top: 0;
+.glass-container{
+  // width: 700px;
+  // height: 375px;
+  color: white;
   display: flex;
+  justify-content: center;
   align-items: center;
-  .logo-vertical {
-    height: 32px;
-    line-height: 32px;
-    text-align: center;
-    width: 180px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 6px;
-    color: #fffce1;
-    font-size: 18px;
-    font-weight: 600;
-    font-style: italic;
-    opacity: 0.6;
-  }
+  gap: 20px;
+  border-radius: 28px;
+  backdrop-filter: blur(17px);
+  background-color: rgba(0,191,255, 0.069);
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
+  border: 0px rgba(255,255,255,0.4) solid;
+  border-bottom: 0px rgba(40,40,40,0.35) solid;
+  border-right: 0px rgba(40,40,40,0.35) solid;
 }
 
-.content {
-  z-index: 99;
-  height: 9000px;
-  position: relative;
-  .back {
-    position: absolute;
-    z-index: -9;
-    top: 0;
-    width: 100%;
-    height: 2000px;
-    background: url("../assets/img/abisy.webp") no-repeat;
-    background-size: cover;
-    background-position: 100% 100%;
-    opacity: 0.4;
+.container {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 2rem;
+  // background: url('https://glassgenerator.netlify.app/assets/images/bg-default-04.jpg');
+  background: #111;
+  color: #fff;
+  width: @full-width;
+  height: 100vh;
+  padding: 0 10%;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+
+
+  @media (max-width: 768px) {
+    
   }
 
-  > div {
-    position: sticky;
+  .header,
+  .content,
+  .footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid #f00;
   }
 
-  .imgList {
-    top: 100px;
-    background: rgba(255, 255, 255, 0.25);
-    .img {
-      width: 400%;
-      height: 180px;
-      position: sticky;
-      background-position: 0 0;
-      background-repeat: repeat-x;
-      background-image: url("https://pub-c5e31b5cdafb419fb247a8ac2e78df7a.r2.dev/public/assets/images/home/bundle-light-1.webp");
-      background-size: contain;
-    }
-  }
+  .header {
+    height: 5%;
+    justify-content: space-between;
+    padding: 0 50px;
+    font-size: 1.5rem;
 
-  .contentList {
-    top: 500px;
-    width: 100%;
-    height: 300px;
-    opacity: 0;
-    font-size: 30px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.8);
-    font-family: 'Courier New', Courier, monospace;
-
-    .lines {
-      opacity: 0;
+    .nav {
+      width: 30%;
+      height: 100%;
+      border: 1px solid #f00;
       display: flex;
-      justify-content: center;
-    }
-    .line2 {
-      margin-top: 20px;
-      font-size: 24px;
+      justify-content: space-evenly;
+      align-items: center;
+      .nav-item {
+        position: relative;
+        cursor: pointer;
+
+        &::after {
+          content: "";
+          display: inline-block;
+          width: 0;
+          height: 2px;
+          background: #fff;
+          transition: all 0.3s;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          transform-origin: center;
+        }
+        &:hover {
+          &::after {
+            width: 100%;
+          }
+        }
+      }
     }
   }
-}
 
-.footer {
+  .content {
+    height: 90%;
+   .glass-container;
+
+  }
+
+  .footer {
+    height: 5%;
+  }
+
+  .scroll-thumb {
+    z-index: 999;
+    width: 10px;
+    height: 100%;
+    background: #f1f1f1;
+    position: fixed;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    .scroll-bar {
+      width: 70%;
+      height: 50px;
+      background: #d6d6d6;
+      border-radius: 999rem;
+    }
+  }
 }

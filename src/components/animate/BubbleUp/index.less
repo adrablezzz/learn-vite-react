@@ -1,0 +1,36 @@
+.circle {
+  z-index: 9999;
+  display: inline-block;
+  background: radial-gradient(
+      78.77% 78.77% at 71.71% 30.77%,
+      #f0fcff 0%,
+      #9bedff 67.21%,
+      #98ecff 76.04%,
+      #5be1ff 84.9%,
+      #00bae2 94.79%
+    ),
+    url("https://assets.codepen.io/16327/noise-e82662fe.png");
+  background-blend-mode: color-dodge;
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  opacity: 0.6;
+}
+.circle.sm {
+  width: 30px;
+  height: 30px;
+}
+
+.circle.md {
+  width: 60px;
+  height: 60px;
+  opacity: 0.4;
+}
+
+.circle.lg {
+  width: 90px;
+  height: 90px;
+  opacity: 0.2;
+}
